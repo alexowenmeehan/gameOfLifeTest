@@ -2,6 +2,8 @@
  * @author Alexander Owen-Meehan 
  */
 
+import java.util.*;
+
 public class Board{
 
     private boolean[][] cellGrid = new boolean[10][10];
@@ -28,7 +30,7 @@ public class Board{
 
     }
 
-    public void removeCell(int col, int row){
+    public void killCell(int col, int row){
 
     	cellGrid[col][row] = false;
 
@@ -94,9 +96,13 @@ public class Board{
 
     }
    
-    public boolean getGridValue(int col, int row) {
+    public boolean getGridValue(int col, int row){
         
         return cellGrid[col][row];
+
+    }
+
+    public void drawBoard(){
 
     }
 
