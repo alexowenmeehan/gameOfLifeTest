@@ -8,17 +8,25 @@ public class Board{
 
     private boolean[][] cellGrid = new boolean[10][10];
 
-    public void Board(){
+    public Board(){
 
     	initialiseCellGrid(cellGrid);
+        drawBoard();
 
     }
 
     public void initialiseCellGrid(boolean[][] cellGrid){
 
+        Random rand = new Random();
+
         for (int i = 0; i < 10; i++) {
             for(int j = 0; j < 10; j++){
-            	cellGrid[i][j] = false;
+                if(rand.nextDouble() >= 0.5){
+                    cellGrid[i][j] = false;
+                }
+                else {
+                    cellGrid[i][j] = true;
+                }
             }
         }
 
@@ -103,6 +111,20 @@ public class Board{
     }
 
     public void drawBoard(){
+
+        System.out.println("Printing Board");
+
+        for (int i = 0; i < 10; i++) {
+            for(int j = 0; j < 10; j++){
+                if(cellGrid[i][j]){
+                    System.out.print((char)0x25A3);
+                }
+                else {
+                    System.out.print((char)0x25A2);
+                }
+            }
+            System.out.println("");
+        }
 
     }
 

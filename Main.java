@@ -10,6 +10,8 @@ public class Main{
 
   	GameOfLifeRun ng = new GameOfLifeRun();
 
+  	//Board lifeGrid = new Board();
+
   } 
 
 }
