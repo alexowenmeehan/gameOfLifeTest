@@ -21,7 +21,7 @@ public class Board{
 
         for (int i = 0; i < 10; i++) {
             for(int j = 0; j < 10; j++){
-                if(rand.nextDouble() >= 0.5){
+                if(rand.nextDouble() >= 0.0){
                     cellGrid[i][j] = false;
                 }
                 else {
@@ -29,6 +29,10 @@ public class Board{
                 }
             }
         }
+
+        addCell(5,4);
+        addCell(5,5);
+        addCell(5,6);
 
     }
 

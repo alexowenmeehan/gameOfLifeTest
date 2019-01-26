@@ -33,12 +33,7 @@ public class GameOfLifeRun{
             determineScenarios();
             nextGridState();
             lifeGrid.drawBoard();
-            try {
-                Thread.sleep(10000000);
-            }
-            catch(InterruptedException ex) {
-                Thread.currentThread().interrupt();
-            }
+            pause();
         }
     }
    
@@ -47,12 +42,13 @@ public class GameOfLifeRun{
         int emptyBoardTrack = 0;
 
         /**
-        * 0 - Currently Unset, only in first run 
+        * 0 - No Life in Cell, no action needed 
         * 1 - Underpopulation, cell dies
         * 2 - Survival, cell stays alive
         * 3 - Creation of Life, new cell made
         * 4 - Overcrowding, cell dies
         * 5 - Error Handler State, should not occur
+        * 6 - Cell was empty, stays empty
         */
 
         for (int i = 0; i < 10; i++) {
@@ -100,7 +96,7 @@ public class GameOfLifeRun{
 
                 switch(cellFate[i][j]){
                     case 0: 
-                        System.out.println("I shouldn't appear" + cellFate[i][j] + lifeGrid.getNeighbouringCells(i,j));
+                        System.out.println("No Life in Cell " + i + " , " + j + " , will remain empty");
                         break;
                     case 1:
                         System.out.println("Underpopulated space, cell at " + i + " , " + j + " has died");
@@ -131,6 +127,19 @@ public class GameOfLifeRun{
                 }   
             }
         }
+    }
+
+    public void pause(){
+
+        System.out.println("Simulating interactions.....................");
+
+        try {
+                Thread.sleep(60000);
+            }
+        catch(InterruptedException ex) {
+                Thread.currentThread().interrupt();
+            }
+
     }
 
 }
