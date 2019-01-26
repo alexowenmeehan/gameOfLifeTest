@@ -1,16 +1,20 @@
 /**
- * @author Alexander Owen-Meehan (1434732), Daniel Foad (1526813)
+ * @author Alexander Owen-Meehan 
  */
-
-import java.util.*;
 
 public class Main{
 
   public static void main(String[] args){
 
-  	GameOfLifeRun ng = new GameOfLifeRun();
+  	boolean debugMode = false;
 
-  	//Board lifeGrid = new Board();
+  	if(args.length != 0){
+		if(args[0].equalsIgnoreCase("debug")){
+	  		debugMode = true;
+		}
+	}
+
+  	GameOfLifeRun ng = new GameOfLifeRun(debugMode);
 
   } 
 
