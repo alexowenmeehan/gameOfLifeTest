@@ -7,11 +7,11 @@ import java.util.Random;
 public class Board{
 
     // Set max size for grid simulation 
-    private int maxGridRows = 10;
-    private int maxGridCols = 10;
+    private int maxGridRows;
+    private int maxGridCols;
 
     // Boolean array used to represent grid, true for present alive cell, false for empty
-    private boolean[][] cellGrid = new boolean[maxGridRows][maxGridCols];
+    private boolean[][] cellGrid;
 
     /** Board
      * Constructs board and draws initial state of grid
@@ -19,7 +19,23 @@ public class Board{
 
     public Board(){
 
+        // Default grid size of 10
+        maxGridRows = 10;
+        maxGridCols = 10;
+
+        cellGrid = new boolean[maxGridRows][maxGridCols];
     	initialiseCellGrid();
+        drawBoard();
+
+    }
+
+    public Board(int rows, int cols){
+
+        maxGridRows = rows;
+        maxGridCols = cols;
+
+        cellGrid = new boolean[rows][cols];
+        initialiseCellGrid();
         drawBoard();
 
     }
@@ -164,9 +180,11 @@ public class Board{
         for (int i = 0; i < maxGridRows; i++) {
             for(int j = 0; j < maxGridCols; j++){
                 if(cellGrid[i][j]){
+                    //prints a filled box
                     System.out.print((char)0x25A3);
                 }
                 else {
+                    //prints an empty box
                     System.out.print((char)0x25A2);
                 }
             }

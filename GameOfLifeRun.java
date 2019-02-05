@@ -6,7 +6,7 @@ import java.lang.Thread;
 
 public class GameOfLifeRun{
 
-    private Board lifeGrid = new Board();
+    private Board lifeGrid;
     private int[][] cellFate;
     private boolean debugMode = false;
     private int maxGridRows = 0;
@@ -22,9 +22,20 @@ public class GameOfLifeRun{
 
         debugMode = debug;
     	initialiseNeighbourGrid();
+        lifeGrid = new Board();
         maxGridRows = lifeGrid.getMaxGridRows();
         maxGridCols = lifeGrid.getMaxGridCols();
         cellFate = new int[maxGridRows][maxGridCols]; 
+        gameRun();
+
+    }
+
+    public GameOfLifeRun(boolean debug, int rows, int cols){
+
+        debugMode = debug;
+        initialiseNeighbourGrid();
+        lifeGrid = new Board(rows, cols);
+        cellFate = new int[rows][cols]; 
         gameRun();
 
     }
