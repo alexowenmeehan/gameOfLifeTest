@@ -1,4 +1,4 @@
-# gameOfLifeTest
+# Game Of Life
 Coding Exercise for BBC
 
 
